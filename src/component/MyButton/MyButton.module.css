@@ -1,0 +1,8 @@
+.button {
+    background-color: rgb(238, 161, 173);
+    border-radius: 8px;
+    height: 8vh;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+}

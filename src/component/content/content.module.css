@@ -1,0 +1,7 @@
+.content {
+    background-color: rgb(135, 166, 222);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
