@@ -9,8 +9,10 @@ import { data } from './assets/mockData';
 
 import Englobant from './HOC/Englobant';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+
 import Card from './component/card/card';
+
 function App() {
    
     return (
@@ -20,21 +22,28 @@ function App() {
               {/* Le switch ne rendra qu'un seul élément */}
               <Switch>
                 <Route path="/" exact /> 
-                  <Route path="/login">
+                  <Route path="/login" exact>
                       <LoginForm />
                   </Route>
-                  <Route path="/colors">
+                  <Route path="/colors" exact>
                       <ColorGenerator />
                   </Route>
-                  <Route path="/compteur">
+                  <Route path="/compteur" exact>
                       <Compteur />
                   </Route>
-                  <Route path="/contenu">
+                  <Route path="/contenu" exact>
                       <Content data={data} />
                   </Route>
-                  <Route path="/contenu/:idCard">
+                  <Route path="/contenu/:idCard" exact>
                     <Content data={data} />
                   </Route>
+                  <Route path="/colors/:couleur">
+                    <ColorGenerator/>
+                  </Route>
+                  <Route path="*">
+                    <Redirect to="/login"  />
+                  </Route>
+                  
               </Switch>
           </Englobant>
       </Router>
