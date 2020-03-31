@@ -3,13 +3,12 @@ import styles from './LoginForm.module.css';
 import { Redirect, useHistory } from 'react-router-dom';
 import MyButton from '../MyButton/MyButton';
 
-
 const LoginForm = (props) => {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
     const history = useHistory();
     return (
-        <form className={styles.LoginForm}>
+        <form>
             <label for="nom">Entrez votre nom d'utilisateur s'il vous plaît</label>
             <br />
             <input type="text" name="nom" id="nom" value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -18,7 +17,7 @@ const LoginForm = (props) => {
             {username.split().map((c) => (
                 <div>
                     <p>{c}</p>
-                    <br/>
+                    <br />
                 </div>
             ))}
             <br />
@@ -28,12 +27,13 @@ const LoginForm = (props) => {
                 type="text"
                 name="mdp"
                 id="nom"
+                //value="mdp"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
             <br />
             <label>{password.length <= 5 ? 'Le mot de passe doit comporter plus de 5 caractère' : null}</label>
-            <MyButton titre="Conexion" myHandler={ ()=> history.push("/") } />
+            <MyButton titre="Connexion" myHandler={() => history.push('/')} />
         </form>
     );
 };

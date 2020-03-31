@@ -1,4 +1,4 @@
-const Englobant = ({ children }) => children
+const Englobant = ({ children }) => children;
 
 export default Englobant;
 
