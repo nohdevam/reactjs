@@ -8,14 +8,14 @@ const Content = ({ data }) => {
 
     const cardFromIdCard = (idCard) => {
         const item = data.find((item) => item.idItem === idCard);
-        return <Card titre={item.titre} contenu={item.contenu} id={item.idItem} estSeul />
+        return <Card titre={item.id + '' +item.title} contenu={item.body} id={item.id} estSeul />
     }
 
     return (
         <div className={styles.content}>
             {idCard? ( cardFromIdCard (idCard)) : (
             data.map((item) => {
-                return <Card titre={item.titre} contenu={item.contenu} id={item.idItem} />;
+                return <Card title={item.title} contenu={item.body} id={item.id} />;
             })
     )}
         </div>

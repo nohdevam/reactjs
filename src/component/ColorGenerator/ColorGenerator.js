@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MyButton from '../MyButton/MyButton';
 import {Redirect} from 'react-router-dom';
-import {useParams, Route} from 'react-router-dom';
-import { Link } from 'react-router-dom';
-
 
 
 const ColorGenerator = (props) => {
 
-    const {couleur} = useParams();
+    
+    // const {couleur} = useParams();
     
     const [ myColor, setMyColor ] = useState([]);
     const couleurRandom = () => {
@@ -18,6 +16,8 @@ const ColorGenerator = (props) => {
     const grille = myColor.map((item) => {
         return <div style={{ width: '200px', height: '200px', fontSize: 38, backgroundColor: item }} />;
     });
+
+    
     return (
         <div style={{ display: 'flex', flexDirection: 'row' }}>
             <MyButton titre="Generer une div" myHandler={() => setMyColor([ ...myColor, couleurRandom() ])} />
